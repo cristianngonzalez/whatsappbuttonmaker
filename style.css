@@ -1,0 +1,82 @@
+*{
+    font-family: 'Fredoka One', cursive;
+}
+
+header{
+    width: 100%;
+    text-align: center;
+    background: white;
+    color: #82CAAF;
+}
+
+#app{
+    background: #82CAAF;
+    text-align: center;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+select{
+    padding: 5px;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 50px;
+    text-align: center;
+    color: white;
+}
+
+input{
+    width: 500px;
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 50px;
+    color: white;
+}
+
+input:link {
+    border: 2px solid  red;
+}
+
+#inputColor{
+    width: 50px;
+    padding: 0;
+}
+
+
+.codebox{
+    width: 500px;
+    margin-left: calc(50% - 250px);
+    border-radius: 10px;
+    background: black;
+}
+
+.codeKeyWordTag{
+    color: blue;
+}
+
+
+.fakeButtonsCloseBox{
+    height: 15px;
+}
+
+.fakeButton{
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.red{
+    background: red;
+}
+.green{
+    background: #00CC33;
+}
+.yellow{
+    background: yellow;
+}

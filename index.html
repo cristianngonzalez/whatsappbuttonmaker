@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+    <!--VueJS-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+    <!--Normalize-->
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <!--Style-->
+    <link rel="stylesheet" href="style.css">
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+
+
+    <title>Make your whatsapp button easylly</title>
+</head>
+<body>
+    
+    <header>
+        <h1>Create your whatsapp button</h1>
+    </header>
+    
+    <div id="app">
+
+        <label for="countries">Set the country of your whatsapp</label><br>
+        <select name="countries" v-model="countrySelected">
+            <option v-bind:value="country.value" v-for="country in countries">{{country.text}}</option>
+        </select>
+        
+        <br>
+        <br>
+
+        <label for="phoneNumber">Write your whatsapp phoneNumber (without country country code)</label><br>
+        <input type="text" v-model="phoneNumber" name="phoneNumber"><br>
+
+        <label for="message">Writhe your message</label><br>
+        <input type="text" v-model="message" name="message"><br>
+
+
+
+        <label for="color">Set color of button</label><br>
+        <input type="color" name="color" id="inputColor" v-model="color"><br>
+        
+        <br>
+
+        <div class="codebox">
+            <div class="fakeButtonsCloseBox">
+                <div class="fakeButton red"></div>
+                <div class="fakeButton yellow"></div>
+                <div class="fakeButton green"></div>
+            </div>
+            <code id="styleTag">
+                &lt;<code class="codeKeyWordTag">style</code>&gt; <br>
+                
+                &lt;<code class="codeKeyWordTag">style</code>/&gt;
+            </code><br>
+            <button type="button" onclick="copyEvent('styleTag')">Copy</button><br>
+        </div>
+
+        <br>
+        
+        <div class="codebox">
+            <div class="fakeButtonsCloseBox">
+                <div class="fakeButton red"></div>
+                <div class="fakeButton yellow"></div>
+                <div class="fakeButton green"></div>
+            </div>
+            <code id="buttonTag">Este est mi boton</code><br>
+            <button type="button" onclick="copyEvent('buttonTag')">Copy</button><br>
+        </div>
+        
+
+    </div>
+
+
+    <footer>
+
+    </footer>
+    
+    <!--Code to copyCliptboard-->
+    <script src="src/modules/copyClipBoard.js"></script>
+
+    <script src="src/modules/allCountries.js"></script>
+    <script src="src/app.js"></script>    
+
+</body>
+</html>
