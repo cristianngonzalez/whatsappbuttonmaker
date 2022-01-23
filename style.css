@@ -1,5 +1,7 @@
 *{
     font-family: 'Fredoka One', cursive;
+    text-decoration: none;
+    list-style: none;
 }
 
 header{
@@ -44,32 +46,66 @@ input:link {
 #inputColor{
     width: 50px;
     padding: 0;
+    margin-top: 5px;
 }
 
+.row{
+    margin-top: 10px;
+    width: 50%;
+    margin-left: calc(25%);
+    height: 70px;
+}
+
+.column{
+    width: 50%;
+    float: left;
+}
+
+.buttonPosition{
+    background: none;
+    border: 2px solid white;
+    border-radius: 50px;
+    color: white;
+    margin-top: 5px;
+}
+
+.buttonPositionPushed{
+    background: white;
+    color: #82CAAF;
+}
 
 .codebox{
     width: 500px;
     margin-left: calc(50% - 250px);
     border-radius: 10px;
     background: black;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;   
+    font-size: 13px;
 }
 
 .codeKeyWordTag{
     color: blue;
 }
-
+.codeKeyWordClass{
+    color: orange;
+}
+.codeString{
+    color: greenyellow;
+}
 
 .fakeButtonsCloseBox{
-    height: 15px;
+    height: 30px;
 }
 
 .fakeButton{
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     border-radius: 50px;
     float: left;
     margin-left: 10px;
-    margin-top: 5px;
+    margin-top: 7px;
 }
 .red{
     background: red;
@@ -79,4 +115,47 @@ input:link {
 }
 .yellow{
     background: yellow;
+}
+
+.copyButton{
+    background: white;
+    border: none;
+    height: 20px;
+    border-radius: 5px;
+    margin-top: 5px;
+    position: absolute;
+    right: calc(50% - 240px);
+}
+
+footer{
+    text-align: center;
+    color: #82CAAF;
+}
+
+footer h3{
+    display: block;
+    float: none;
+    color: #82CAAF;
+}
+
+footer a{
+    color: #82CAAF;
+}
+
+#socialLinks{
+    margin-left: calc(50% - 100px);
+    background: red;
+    color: #82CAAF;
+}
+
+#socialLinks li{
+    float: left;
+    text-decoration: none;
+    list-style: none;
+    position: relative;
+    margin-left: 10px;
+    color: #82CAAF;
+}
+#socialLinks a{
+    color: #82CAAF;
 }
