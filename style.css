@@ -1,168 +1,105 @@
-*{
-    font-family: 'Fredoka One', cursive;
-    text-decoration: none;
-    list-style: none;
+
+body{
+    padding: 0px;
+    margin: 0px;
+    background: url('./background-2.png');
+    background-size: 441px 800px;
+    background-repeat: repeat;
+    font-family: 'Quicksand', sans-serif;
 }
 
 header{
     width: 100%;
-    text-align: center;
-    background: white;
-    color: #82CAAF;
+    margin: 0px;
+    background: rgb(255, 255, 255);
+    box-shadow: 3px 3px 6px #00000069;
 }
+
+    header h1{
+        margin: 0px;
+        text-align: center;
+        padding-top: 8px;
+        padding-bottom: 10px;
+        color: #1ca266;
+    }
 
 #app{
-    background: #82CAAF;
-    text-align: center;
-    color: white;
-    padding-top: 20px;
-    padding-bottom: 20px;
 }
 
-select{
-    padding: 5px;
-    background: transparent;
-    border: 2px solid white;
-    border-radius: 50px;
-    text-align: center;
-    color: white;
-}
+    #app label{
+        color: #1ca266;
+        font-size: 20px;
+        display: block;
+    }
 
-option{
-    background: white;
-    color: black;
-}
+    #app .form-select , #app .form-control{
+        background: #202c33;
+        color: white;
+        border: none;
+        border-radius: 15px;
+    }
 
-input{
-    width: 500px;
-    padding: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background: transparent;
-    border: 2px solid white;
-    border-radius: 50px;
-    color: white;
-}
+    #app .form-control-color{
+        width: 6rem;
+        margin-top: -10px;
+    }
 
-input:link {
-    border: 2px solid  red;
-}
 
-#inputColor{
-    width: 50px;
-    padding: 0;
-    margin-top: 5px;
-}
-
-.row{
-    margin-top: 10px;
-    width: 50%;
-    margin-left: calc(25%);
-    height: 70px;
-}
-
-.column{
-    width: 50%;
-    float: left;
-}
-
-.buttonPosition{
-    background: none;
-    border: 2px solid white;
-    border-radius: 50px;
-    color: white;
-    margin-top: 5px;
-}
-
-.buttonPositionPushed{
-    background: white;
-    color: #82CAAF;
-}
 
 .codebox{
-    width: 500px;
-    margin-left: calc(50% - 250px);
+    width: 100%;
     border-radius: 10px;
-    background: black;
+    background: #202c33;
     text-align: left;
     padding-left: 10px;
-    padding-right: 10px;   
+    padding-right: 10px;  
+    padding-bottom: 5px; 
     font-size: 13px;
-}
-
-.codeKeyWordTag{
-    color: blue;
-}
-.codeKeyWordClass{
-    color: orange;
-}
-.codeString{
-    color: greenyellow;
-}
-
-.fakeButtonsCloseBox{
-    height: 30px;
-}
-
-.fakeButton{
-    width: 15px;
-    height: 15px;
-    border-radius: 50px;
-    float: left;
-    margin-left: 10px;
-    margin-top: 7px;
-}
-.red{
-    background: red;
-}
-.green{
-    background: #00CC33;
-}
-.yellow{
-    background: yellow;
-}
-
-.copyButton{
-    background: white;
-    border: none;
-    height: 20px;
-    border-radius: 5px;
-    margin-top: 5px;
-    position: absolute;
-    right: calc(50% - 240px);
-}
-
-footer{
-    text-align: center;
-    color: #82CAAF;
-}
-
-footer h3{
-    display: block;
-    float: none;
-    color: #82CAAF;
-}
-
-footer a{
-    color: #82CAAF;
-}
-
-#socialLinks{
-    margin-left: calc(50% - 100px);
-    background: red;
-    color: #82CAAF;
-}
-
-#socialLinks li{
-    float: left;
-    text-decoration: none;
-    list-style: none;
     position: relative;
-    margin-left: 10px;
-    color: #82CAAF;
+    color: white;
 }
-#socialLinks a{
-    color: #82CAAF;
-}
-
-
+    code{
+        color: white;
+    }
+    
+    .codeKeyWordTag{
+        color: #569cd6;
+    }
+    .codeKeyWordClass{
+        color: #9ccdc4;
+    }
+    .codeString{
+        color: #ce915b;
+    }
+    
+    .fakeButtonsCloseBox{
+        height: 30px;
+    }
+    
+    .fakeButton{
+        width: 13px;
+        height: 13px;
+        border-radius: 50px;
+        float: left;
+        margin-left: 10px;
+        margin-top: 7px;
+    }
+    .red{
+        background: red;
+    }
+    .green{
+        background: #00CC33;
+    }
+    .yellow{
+        background: yellow;
+    }
+    
+    .copyButton{
+        background: white;
+        border: none;
+        height: 20px;
+        border-radius: 5px;
+        margin-top: 5px;
+        position: absolute;
+        right: 10px;
+    }

@@ -1,53 +1,53 @@
 var app = new Vue({
-    el: '#app',
-    data: {
-      message: 'Give me follow in instagram ;)',
-      messageConverted: '',
-      countries: allCountries,
-      countrySelected: '+54',
-      phoneNumber: '',
-      color: '#00CC33',
-      position: 'left'
+  el: '#app',
+  data: {
+    message: 'Give me follow in instagram ;)',
+    messageConverted: '',
+    countries: allCountries,
+    countrySelected: '54',
+    phoneNumber: '',
+    color: '#00CC33',
+    position: 'left'
+  },
+  methods:{
+    /*To copy the code*/
+    copyToClipBoard(event , id){
+      //Restore all copy buttons
+      let buttons = document.getElementsByClassName('copyButton')
+      buttons[0].innerHTML = 'Copy';
+      buttons[1].innerHTML = 'Copy';
+
+      //Change text this copy button
+      event.target.innerHTML = 'Copied!'
+
+      //Copy to clipboard
+      const str = document.getElementById(id);
+      window.getSelection().selectAllChildren(str);
+      document.execCommand("Copy");
     },
-    methods:{
-      /*To copy the code*/
-      copyToClipBoard(event , id){
-        //Restore all copy buttons
-        let buttons = document.getElementsByClassName('copyButton')
-        buttons[0].innerHTML = 'Copy';
-        buttons[1].innerHTML = 'Copy';
 
-        //Change text this copy button
-        event.target.innerHTML = 'Copied!'
+    /*Change message*/
+    changeMessage(event){
 
-        //Copy to clipboard
-        const str = document.getElementById(id);
-        window.getSelection().selectAllChildren(str);
-        document.execCommand("Copy")
-      },
+      this.messageConverted = this.message.replace(/ /g , '%20');
 
-      /*Change message*/
-      changeMessage(event){
+      console.log(this.messageConverted)
 
-        this.messageConverted = this.message.replace(/ /g , '%20');
+    },
 
-        console.log(this.messageConverted)
+    setPosition(event , position){
+      //Toggle class pushed button
+      let buttons = document.getElementsByClassName('buttonPosition')
+      buttons[0].classList.remove('active');
+      buttons[1].classList.remove('active');
 
-      },
+      event.target.classList.add('active');
 
-      setPosition(event , position){
-        //Toggle class pushed button
-        let buttons = document.getElementsByClassName('buttonPosition')
-        buttons[0].classList.remove('buttonPositionPushed');
-        buttons[1].classList.remove('buttonPositionPushed');
+      console.log(position);  
 
-        event.target.classList.add('buttonPositionPushed');
-
-        console.log(position);  
-
-        this.position = position;
-      }
+      this.position = position;
     }
+  }
 
 
 })

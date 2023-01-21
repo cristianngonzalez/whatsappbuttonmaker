@@ -5,155 +5,133 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
-
     <!--VueJS-->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
-    <!--Jquery-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!--Countries Flag Module-->
-    <link rel="stylesheet" href="src/modules/country-picker-flags/build/css/countrySelect.min.css">
-    <script src="src/modules/country-picker-flags/build/js/countrySelect.min.js"></script>
-
-    <!--Normalize-->
-    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
-    <!--Style-->
-    <link rel="stylesheet" href="style.css">
-    <!--Google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet"> 
 
-    <!--Bootstrap icons-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-    <title>Make your whatsapp button easylly</title>
+    <link rel="stylesheet" href="style.css">
+    
+
+    <title>Document</title>
 </head>
 <body>
     
     <header>
-        <h1>Create your whatsapp button</h1>
+        <h1>Create your WhatsApp button</h1>
     </header>
 
-    
-    
-    <div id="app">
+    <div id="app" class="container">
 
 
-        <label for="countries">Set the country of your whatsapp</label><br>
-        <select name="countries" v-model="countrySelected">
-            <option v-bind:value="country.value" v-for="country in countries">{{country.text}}</option>
-        </select>
-        
-        <br>
-        <br>
+        <div class="mb-3 mt-3">
+            <label for="countries">Set the country of your whatsapp</label>
+            <select class="form-select" aria-label="Default select example" name="countries" v-model="countrySelected">
+                <option v-bind:value="country.value" v-for="country in countries">{{country.text}}</option>
+            </select>
+        </div>
 
-        <label for="phoneNumber">Write your whatsapp phoneNumber (without country country code)</label><br>
-        <input type="text" v-model="phoneNumber" name="phoneNumber"><br>
-
-        <label for="message">Writhe your message</label><br>
-        <input type="text" v-model="message" name="message" @change="changeMessage($event)"><br>
+        <div class="mb-3 mt-3">
+            <label for="phoneNumber">Write your whatsapp phoneNumber (without country country code)</label>
+            <input type="tel" class="form-control" v-model="phoneNumber" name="phoneNumber">
+        </div>
 
 
-        <div class="row"> 
-            <div class="column">
-                <!--Set color-->
-                <label for="color">Set color of button</label><br>
-                <input type="color" name="color" id="inputColor" v-model="color"><br>
+        <div class="mb-3">
+            <label for="message" class="form-label">Write your message</label>
+            <textarea class="form-control" rows="3" v-model="message" name="message" @change="changeMessage($event)"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <div class="row">
+                <div class="col-6">
+                    <label for="exampleColorInput" class="form-label">Set color</label>
+                    <input type="color" class="form-control form-control-color" value="#563d7c" title="Choose your color" name="color" id="inputColor" v-model="color">
+                </div>
+                <div class="col-6">
+                    <label for="">Set position of button</label>
+                    <div class="btn-group">
+                        <button class="btn btn-dark buttonPosition active"  @click="setPosition($event , 'left')">Left</button>
+                        <button class="btn btn-dark buttonPosition"  @click="setPosition($event , 'right')">Right</button>
+                      </div>
+                </div>
             </div>
-            
-            <!--Set position-->
-            <div class="column">
-                <label for="">Set position of button</label><br>
-                <button class="buttonPosition buttonPositionPushed" @click="setPosition($event , 'left')">Left</button>
-                <button class="buttonPosition" @click="setPosition($event , 'right')">Right</button>
+        </div>
+
+
+
+        <div class="mb-3">
+            <label>Copy this code into the head tag of your html code</label>
+            <!--------------------------------------------------------------------------------------------->
+            <!--Style tag-->
+            <div class="codebox">
+                <div class="fakeButtonsCloseBox">
+                    <div class="fakeButton red"></div>
+                    <div class="fakeButton yellow"></div>
+                    <div class="fakeButton green"></div>
+
+                    <button type="button" @click="copyToClipBoard($event , 'styleTag')" class="copyButton">Copy</button>
+                </div>
+
+                <span>
+                    <code id="styleTag">
+
+                        &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"&gt; <br>
+        
+                        <code class="codeKeyWordTag">&lt;style&gt;</code> <br>
+                        .whatsapplink{<br>
+                        position:fixed;width:60px;height:60px;<br>
+                        bottom:40px;{{position}}:40px;background-color:{{color}};color:#FFF;border-radius:50px;text-align:center;font-size:40px;box-shadow:2px 2px 3px #999;z-index:100}.whatsapplink .bi{position: absolute;{{position}}:10px;top:7px;}.whatsapplink:hover{text-decoration:none;color:#25d366;background-color:#fff}.whatsapp-box{margin-top:16px}<br>
+                        <code class="codeKeyWordTag">&lt;/style&gt;</code>
+                    </code>
+                </span>
+                <br>
+            </div>
+            <!--------------------------------------------------------------------------------------------->
+        </div>
+
+
+
+        <div class="mb-3">
+            <label>Copy this code anywhere part of your code html</label>
+            <div class="codebox">
+                <div class="fakeButtonsCloseBox">
+                    <div class="fakeButton red"></div>
+                    <div class="fakeButton yellow"></div>
+                    <div class="fakeButton green"></div>
+
+                    <button type="button" class="copyButton" @click="copyToClipBoard($event , 'buttonTag')">Copy</button>
+                </div>
+                <span>
+                    <code id="buttonTag">
+
+                        &lt;<code class="codeKeyWordTag">div</code> <code class="codeKeyWordClass">class</code>=<code class="codeString">"whatsapp-box"</code>&gt;
+                        &lt;<code class="codeKeyWordTag">a</code> <code class="codeKeyWordClass">href</code>=<code class="codeString">"https://api.whatsapp.com/send?phone={{countrySelected}}{{phoneNumber}}&text={{messageConverted}}"</code> <code class="codeKeyWordClass">class</code>=<code class="codeString">"whatsapplink"</code> <code class="codeKeyWordClass">target</code>=<code class="codeString">"_blank"</code> &gt;
+                        
+                        <code class="codeKeyWordTag">&lt;i</code> <code class="codeKeyWordClass">class</code>=<code class="codeString">"bi bi-whatsapp"</code> <code class="codeKeyWordTag">&gt;&lt;/i&gt;</code>
+        
+                        &lt;/<code class="codeKeyWordTag">a</code>&gt;
+                        <code class="codeKeyWordTag">&lt;/div&gt;</code>
+        
+                    </code>
+                </span>
             </div>
         </div>
         
-        <span>Copy this code into the head tag of your html code</span>
-        <!--------------------------------------------------------------------------------------------->
-        <!--Style tag-->
-        <div class="codebox">
-            <div class="fakeButtonsCloseBox">
-                <div class="fakeButton red"></div>
-                <div class="fakeButton yellow"></div>
-                <div class="fakeButton green"></div>
-
-                <button type="button" @click="copyToClipBoard($event , 'styleTag')" class="copyButton">Copy</button>
-            </div>
-
-            <span>
-                <code id="styleTag">
-
-                    &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"&gt; <br>
-    
-                    &lt;<code class="codeKeyWordTag">style</code>&gt; <br>
-                    .whatsapplink{position:fixed;width:60px;height:60px;<br>bottom:40px;{{position}}:40px;background-color:{{color}};color:#FFF;border-radius:50px;text-align:center;font-size:40px;box-shadow:2px 2px 3px #999;z-index:100}.whatsapplink .bi{position: absolute;{{position}}:10px;top:7px;}.whatsapplink:hover{text-decoration:none;color:#25d366;background-color:#fff}.whatsapp-box{margin-top:16px}<br>
-                    &lt;<code class="codeKeyWordTag">/style</code>&gt;
-                </code>
-            </span>
-            <br>
-        </div>
-        <!--------------------------------------------------------------------------------------------->
-
-        <br>
         
-        <span>Copy this code anywhere part of your code html</span>
-        <div class="codebox">
-            <div class="fakeButtonsCloseBox">
-                <div class="fakeButton red"></div>
-                <div class="fakeButton yellow"></div>
-                <div class="fakeButton green"></div>
 
-                <button type="button" class="copyButton" @click="copyToClipBoard($event , 'buttonTag')">Copy</button>
-            </div>
-            <span>
-                <code id="buttonTag">
-
-                    &lt;<code class="codeKeyWordTag">div</code> <code class="codeKeyWordClass">class</code>=<code class="codeString">"whatsapp-box"</code>&gt;
-                    &lt;<code class="codeKeyWordTag">a</code> <code class="codeKeyWordClass">href</code>=<code class="codeString">"https://api.whatsapp.com/send?phone={{countrySelected}}{{phoneNumber}}&text={{messageConverted}}"</code> class="whatsapplink" target="_blank" &gt;
-                    
-                        &lt;i class="bi bi-whatsapp"&gt;&lt;/i&gt;<br>
-    
-                    &lt;/<code class="codeKeyWordTag">a</code>&gt;
-                    &lt;/div&gt;
-    
-                </code>
-            </span>
-           <br>
-        </div>
-        
 
     </div>
 
 
-    <footer>
-        <ul id="socialLinks">
-            <li><a href="https://github.com/cristianngonzalez" target="_blank"><i class="bi bi-github"></i></a></li>
-            <li><a href="https://www.instagram.com/cristianngonzalez_/" target="_blank"><i class="bi bi-instagram"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/cristianngonzalez/" target="_blank"><i class="bi bi-linkedin"></i></a></li>
-        </ul><br>
-        
-        <h3><a href="http://www.cristianngonzalez.com" target="_blank">Cristian Nazareno Gonzalez - 2022</a></h3>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
 
-        <form id="paypalForm" action="https://www.paypal.com/donate" method="post" target="_top">
-            <input id="paypalButton" type="hidden" name="hosted_button_id" value="SYA6PWVRNUF3C"/>
-            <input style="width: 200px; border-radius: 0;" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-            <img alt="" border="0" src="https://www.paypal.com/en_AR/i/scr/pixel.gif" width="20px" />
-        </form>
-            
-    </footer>
-    
 
-    <script>
-        $("#country_selector").countrySelect({
-            defaultCountry: "us",
-            defaultStyling:"inside",
-            responsiveDropdown:true
-        });
-    </script>
 
     <script src="src/modules/allCountries.js"></script>
     <script src="src/app.js"></script>    
