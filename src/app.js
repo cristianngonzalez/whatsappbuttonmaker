@@ -1,8 +1,13 @@
+//Dom elements
+let element_whatsapplink = document.getElementsByClassName('whatsapplink')[0]
+
+//---------------------------------------------------------------------------
+//Vue Class
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'Give me follow in instagram ;)',
-    messageConverted: '',
+    message: 'Hello!',
+    messageConverted: 'Hello!',
     countries: allCountries,
     countrySelected: '54',
     phoneNumber: '',
@@ -33,6 +38,14 @@ var app = new Vue({
 
       console.log(this.messageConverted)
 
+
+      //There is an example element, let's change the href with the message
+      element_whatsapplink.setAttribute('href' , '`https://api.whatsapp.com/send?phone=${this.countrySelected}${this.phoneNumber}&text=${this.messageConverted}`')
+    },
+
+    changeNumber(event){
+      //There is an example element, let's change the href with the message
+      element_whatsapplink.setAttribute('href' , '`https://api.whatsapp.com/send?phone=${this.countrySelected}${this.phoneNumber}&text=${this.messageConverted}`')
     },
 
     setPosition(event , position){
@@ -43,9 +56,21 @@ var app = new Vue({
 
       event.target.classList.add('active');
 
-      console.log(position);  
-
       this.position = position;
+
+      //There is a example button, also let's change position it.
+      if(position == 'left'){
+        element_whatsapplink.style.right = 'auto';
+        element_whatsapplink.style.left = '40px';
+      }else{
+        element_whatsapplink.style.left = 'auto';
+        element_whatsapplink.style.right = '40px';
+      }
+    },
+
+    changeColor(event){
+      //There is a example button, also let's change color it.
+      element_whatsapplink.style.backgroundColor = event.target.value
     }
   }
 
